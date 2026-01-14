@@ -69,17 +69,60 @@ Returns the first existing path found (given selected channels), or <code>null</
 
 ```js
 import librewolfLocation from "librewolf-location";
+import {
+  locateLibreWolfOrExplain,
+  getInstallGuidance,
+  getLibreWolfVersion
+} from "librewolf-location";
 
 // Strict (Stable only)
 console.log(librewolfLocation());
 // => "/Applications/LibreWolf.app/Contents/MacOS/LibreWolf" or null
+
+// Throw with a friendly guide when not found
+try {
+  const bin = locateLibreWolfOrExplain({allowFallback: true});
+  console.log(bin);
+
+  // Cross-platform version (no exec by default)
+  console.log(getLibreWolfVersion(bin)); // e.g. "128.0" or null
+
+  // Opt-in: allow executing the binary (Linux/other)
+  console.log(getLibreWolfVersion(bin, {allowExec: true}));
+} catch (e) {
+  console.error(String(e));
+  // Or print getInstallGuidance() explicitly
+}
 ```
 
 **Via CLI:**
 
 ```bash
 npx librewolf-location
+
+# Respect environment overrides
+LIBREWOLF_BINARY=/custom/path/to/librewolf npx librewolf-location
+
+# Print browser version (empty + exit code 2 if unavailable)
+npx librewolf-location --librewolf-version
+npx librewolf-location --browser-version
+
+# Opt-in: allow executing the binary to fetch version
+npx librewolf-location --browser-version --allow-exec
 ```
+
+### Environment overrides
+
+If this environment variable is set and points to an existing binary, it takes precedence:
+
+- `LIBREWOLF_BINARY`
+
+## API
+
+- `default export locateLibreWolf(allowFallback?: boolean): string | null`
+- `locateLibreWolfOrExplain(options?: boolean | { allowFallback?: boolean }): string`
+- `getLibreWolfVersion(bin: string, opts?: { allowExec?: boolean }): string | null`
+- `getInstallGuidance(): string`
 
 ## Related projects
 
