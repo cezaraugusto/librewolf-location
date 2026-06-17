@@ -1,4 +1,4 @@
-[npm-version-image]: https://img.shields.io/npm/v/librewolf-location.svg?color=1e90ff
+[npm-version-image]: https://img.shields.io/npm/v/librewolf-location.svg?color=0971fe
 [npm-version-url]: https://www.npmjs.com/package/librewolf-location
 [npm-downloads-image]: https://img.shields.io/npm/dm/librewolf-location.svg?color=2ecc40
 [npm-downloads-url]: https://www.npmjs.com/package/librewolf-location
