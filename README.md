@@ -85,7 +85,7 @@ import {
 console.log(librewolfLocation())
 // => "/Applications/LibreWolf.app/Contents/MacOS/LibreWolf" or null
 
-// Throw with a friendly guide when not found
+// Throw with an install guide when not found
 try {
   const bin = locateLibreWolfOrExplain({allowFallback: true})
   console.log(bin)

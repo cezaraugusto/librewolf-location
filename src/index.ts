@@ -57,12 +57,12 @@ export function getInstallGuidance (): string {
   return [
     "We couldn't find a LibreWolf browser on this machine.",
     '',
-    "Here's the fastest way to get set up:",
+    'To install one:',
     '',
     '1) Install LibreWolf from the official site',
     '   (or install via your system package manager where available)',
     '',
-    "Then re-run your command, and we'll detect it automatically.",
+    'Re-run your command afterward and it will be detected automatically.',
     '',
     'Alternatively, set LIBREWOLF_BINARY=/path/to/librewolf and re-run.'
   ].join('\n')
