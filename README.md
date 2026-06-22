@@ -11,9 +11,15 @@
 
 <img alt="LibreWolf" align="right" src="https://cdn.jsdelivr.net/gh/extension-js/media@9ef31f005a0192907d9f6405838e43776aca2124/browser_logos/svg/librewolf.svg" width="10.5%" />
 
-* By default checks only `stable`.
-* Supports macOS / Windows / Linux
-* Works both as an ES module or CommonJS
+- By default checks only `stable`.
+- Supports macOS / Windows / Linux
+- Works both as an ES module or CommonJS
+
+## Installation
+
+```bash
+npm i librewolf-location
+```
 
 ## Support table
 
@@ -68,31 +74,38 @@ Returns the first existing path found (given selected channels), or <code>null</
 **Via Node.js (strict by default):**
 
 ```js
-import librewolfLocation from "librewolf-location";
+import librewolfLocation from 'librewolf-location'
 import {
   locateLibreWolfOrExplain,
   getInstallGuidance,
   getLibreWolfVersion
-} from "librewolf-location";
+} from 'librewolf-location'
 
 // Strict (Stable only)
-console.log(librewolfLocation());
+console.log(librewolfLocation())
 // => "/Applications/LibreWolf.app/Contents/MacOS/LibreWolf" or null
 
 // Throw with a friendly guide when not found
 try {
-  const bin = locateLibreWolfOrExplain({allowFallback: true});
-  console.log(bin);
+  const bin = locateLibreWolfOrExplain({allowFallback: true})
+  console.log(bin)
 
   // Cross-platform version (no exec by default)
-  console.log(getLibreWolfVersion(bin)); // e.g. "128.0" or null
+  console.log(getLibreWolfVersion(bin)) // e.g. "128.0" or null
 
   // Opt-in: allow executing the binary (Linux/other)
-  console.log(getLibreWolfVersion(bin, {allowExec: true}));
+  console.log(getLibreWolfVersion(bin, {allowExec: true}))
 } catch (e) {
-  console.error(String(e));
+  console.error(String(e))
   // Or print getInstallGuidance() explicitly
 }
+```
+
+**CommonJS:**
+
+```js
+const api = require('librewolf-location')
+const locateLibreWolf = api.default || api
 ```
 
 **Via CLI:**
@@ -126,14 +139,16 @@ If this environment variable is set and points to an existing binary, it takes p
 
 ## Related projects
 
-* [brave-location](https://github.com/cezaraugusto/brave-location)
-* [chrome-location2](https://github.com/cezaraugusto/chrome-location2)
-* [edge-location](https://github.com/cezaraugusto/edge-location)
-* [firefox-location2](https://github.com/cezaraugusto/firefox-location2)
-* [opera-location2](https://github.com/cezaraugusto/opera-location2)
-* [vivaldi-location2](https://github.com/cezaraugusto/vivaldi-location2)
-* [yandex-location](https://github.com/cezaraugusto/yandex-location)
-* [waterfox-location](https://github.com/cezaraugusto/waterfox-location)
+- [brave-location](https://github.com/cezaraugusto/brave-location)
+- [chrome-location2](https://github.com/cezaraugusto/chrome-location2)
+- [chromium-location](https://github.com/cezaraugusto/chromium-location)
+- [edge-location](https://github.com/cezaraugusto/edge-location)
+- [firefox-location2](https://github.com/cezaraugusto/firefox-location2)
+- [safari-location2](https://github.com/cezaraugusto/safari-location2)
+- [opera-location2](https://github.com/cezaraugusto/opera-location2)
+- [vivaldi-location2](https://github.com/cezaraugusto/vivaldi-location2)
+- [waterfox-location](https://github.com/cezaraugusto/waterfox-location)
+- [yandex-location](https://github.com/cezaraugusto/yandex-location)
 
 ## License
 
